@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="《姑苏繁华图》四座古塔图鉴：楞伽塔、瑞光塔、北寺塔、虎丘塔——一部画卷，四座宝塔，千年姑苏">
+<!-- 微信/社交卡片 Open Graph -->
+<meta property="og:title" content="四塔记 · 《姑苏繁华图》里的宝塔">
+<meta property="og:description" content="楞伽塔、瑞光塔、北寺塔、虎丘塔——一部十二米长卷，四座千年宝塔，一眼望尽姑苏繁华。含实景照片、互动问答。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://b5c0ec30b3084d2c952f32b725fbf02c.app.workbuddy.link/thumbnail.jpg">
+<meta property="og:url" content="https://b5c0ec30b3084d2c952f32b725fbf02c.app.workbuddy.link">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://b5c0ec30b3084d2c952f32b725fbf02c.app.workbuddy.link/thumbnail.jpg">
+<title>四塔记 · 《姑苏繁华图》里的宝塔</title>
+<style>
+:root{
+  --bg:#f7f1e3; --paper:#fdfaf1; --ink:#2b2620; --ink2:#5a4f42;
+  --zhu:#9e2b25; --zhu-l:#b54840; --gold:#a5813c; --gold-l:#c2a367;
+  --line:#e3d8bf; --card:#fffdf6; --shadow:0 2px 10px rgba(90,70,40,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:"Songti SC","STSong","SimSun",Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 60px}
+
+/* ===== 顶部题签 ===== */
+.hero{background:linear-gradient(180deg,#9e2b25 0%,#8a241f 100%);color:#f7ecd5;padding:44px 20px 34px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:10px;border:1px solid rgba(247,236,213,.35);pointer-events:none}
+.hero .scroll-tag{display:inline-block;font-size:13px;letter-spacing:.35em;color:#e9cf9a;border:1px solid rgba(233,207,154,.6);padding:3px 14px 3px 18px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:34px;letter-spacing:.12em;font-weight:700;margin-bottom:6px}
+.hero h1 small{font-size:20px;color:#e9cf9a;letter-spacing:.05em;font-weight:400}
+.hero .sub{font-size:14px;color:rgba(247,236,213,.85);letter-spacing:.15em}
+.hero .seal{display:inline-block;margin-top:14px;background:#f7ecd5;color:#9e2b25;font-size:13px;padding:4px 14px;letter-spacing:.25em;border-radius:3px;font-weight:700}
+
+/* ===== 导航 ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(247,241,227,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+nav .in{display:flex;gap:6px;padding:9px 14px;max-width:720px}
+nav a{flex:none;font-size:14px;color:var(--ink2);text-decoration:none;padding:5px 13px;border-radius:999px;border:1px solid transparent;letter-spacing:.05em}
+nav a.on{color:var(--zhu);border-color:var(--zhu);background:#fff}
+nav a:active{background:#efe6cf}
+
+/* ===== 通用节 ===== */
+section{margin-top:38px}
+.sec-head{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--zhu);padding-bottom:8px;margin-bottom:16px}
+.sec-head .no{font-size:13px;color:var(--gold);letter-spacing:.1em}
+.sec-head h2{font-size:22px;color:var(--zhu);letter-spacing:.1em}
+.sec-sub{font-size:13px;color:var(--gold);margin:-10px 0 16px;letter-spacing:.05em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card p{font-size:15px;color:var(--ink2);margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+.hl{color:var(--zhu);font-weight:700}
+.gold-t{color:var(--gold);font-weight:700}
+.note{font-size:12.5px;color:#9c8f78;background:#faf5e6;border-left:3px solid var(--gold-l);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:10px;line-height:1.7}
+.quote{font-size:14.5px;color:var(--ink);background:#faf3e0;border-radius:8px;padding:10px 14px;margin:10px 0;position:relative}
+.quote::before{content:"❝";color:var(--gold);margin-right:6px}
+
+/* ===== 数据卡 ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-size:21px;color:var(--zhu);letter-spacing:.02em}
+.stat span{font-size:12px;color:var(--gold);letter-spacing:.05em}
+
+/* ===== 行进路线 ===== */
+.route{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 14px 14px;box-shadow:var(--shadow)}
+.route-strip{position:relative;margin:14px 0 6px;padding-top:26px}
+.route-strip::before{content:"";position:absolute;top:34px;left:16px;right:16px;height:2px;background:linear-gradient(90deg,var(--gold-l),var(--gold))}
+.route-nodes{display:flex;justify-content:space-between;position:relative}
+.rnode{width:12.5%;text-align:center;position:relative;cursor:default}
+.rnode .dot{width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--gold);margin:0 auto;position:relative;top:4px}
+.rnode.tower .dot{border-color:var(--zhu);background:var(--zhu);box-shadow:0 0 0 4px rgba(158,43,37,.15)}
+.rnode.tower{cursor:pointer}
+.rnode.tower:active .lbl{color:var(--zhu)}
+.rnode .lbl{font-size:11.5px;color:var(--ink2);margin-top:10px;line-height:1.35;letter-spacing:.02em}
+.rnode.tower .lbl{color:var(--zhu);font-weight:700}
+.rnode .lbl em{display:block;font-style:normal;font-size:10.5px;color:var(--gold);font-weight:400}
+.route p{font-size:13.5px;color:var(--ink2);text-align:center;margin-top:10px}
+
+/* ===== 塔卡 ===== */
+.tower-card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:16px;overflow:hidden;box-shadow:var(--shadow)}
+.tower-head{display:flex;align-items:center;gap:14px;padding:16px;cursor:pointer;user-select:none}
+.tower-head:active{background:#faf5e6}
+.tower-glyph{width:54px;flex:none;text-align:center}
+.tower-glyph svg{display:block;margin:0 auto}
+.tower-glyph .h{display:block;font-size:11px;color:var(--gold);margin-top:3px;letter-spacing:.05em}
+.tower-tt{flex:1;min-width:0}
+.tower-tt h3{font-size:19px;color:var(--zhu);letter-spacing:.06em}
+.tower-tt .alias{font-size:12.5px;color:var(--gold);letter-spacing:.05em;margin-top:1px}
+.tower-tt .pos{font-size:12.5px;color:var(--ink2);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arrow{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--gold-l);color:var(--gold);font-size:14px;display:flex;align-items:center;justify-content:center;transition:transform .3s;font-family:serif}
+.tower-card.open .arrow{transform:rotate(90deg)}
+.tower-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.tower-in{padding:0 16px 16px;border-top:1px dashed var(--line)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.fact{background:#faf5e6;border-radius:8px;padding:9px 12px}
+.fact b{display:block;font-size:12px;color:var(--gold);letter-spacing:.08em;margin-bottom:2px}
+.fact span{font-size:14.5px;color:var(--ink)}
+.tower-in h4{font-size:15px;color:var(--zhu);margin:14px 0 6px;letter-spacing:.08em}
+.tower-in p{font-size:14.5px;color:var(--ink2);margin-bottom:8px}
+.hbar-row{margin:10px 0}
+.hbar-row .t{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);margin-bottom:3px}
+.hbar-row .t b{color:var(--zhu)}
+.hbar{height:12px;background:#f0e8d3;border-radius:6px;overflow:hidden}
+.hbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--zhu),var(--zhu-l));border-radius:6px;transition:width 1s ease .15s}
+.hbar i.g{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.open .hbar i{width:var(--w)}
+
+/* ===== 高度对比 ===== */
+.cmp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px;box-shadow:var(--shadow)}
+.cmp h3{font-size:17px;color:var(--zhu);margin-bottom:4px;letter-spacing:.06em}
+.cmp .tip{font-size:13px;color:var(--gold);margin-bottom:14px}
+.cbar-row{margin:14px 0}
+.cbar-row .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px}
+.cbar-row .t b{color:var(--zhu)}
+.cbar-row .t span{color:var(--gold);font-size:12.5px}
+.cbar{height:20px;background:#f0e8d3;border-radius:6px;overflow:hidden}
+.cbar i{display:block;height:100%;width:0;border-radius:6px;transition:width 1.1s ease;background:linear-gradient(90deg,var(--zhu),var(--zhu-l))}
+.cbar i.g{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.cmp.on .cbar i{width:var(--w)}
+.btn{display:inline-block;background:var(--zhu);color:#f7ecd5;font-size:14.5px;letter-spacing:.15em;padding:9px 26px;border-radius:999px;border:none;cursor:pointer;font-family:inherit;margin-top:6px}
+.btn:active{background:#83211d}
+.btn:disabled{background:#c7a8a5}
+
+/* ===== 冷知识翻卡 ===== */
+.egg-grid{display:grid;gap:12px}
+.egg{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;cursor:pointer;position:relative;box-shadow:var(--shadow)}
+.egg:active{background:#faf5e6}
+.egg .q{font-size:15px;color:var(--ink);font-weight:700;padding-right:26px;line-height:1.6}
+.egg .q::before{content:"问 ";font-size:12px;color:var(--gold);font-weight:400}
+.egg .a{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--ink2)}
+.egg.flip .a{display:block}
+.egg .mark{position:absolute;right:14px;top:14px;color:var(--gold-l);font-size:13px;transition:transform .3s}
+.egg.flip .mark{transform:rotate(90deg)}
+
+/* ===== 考考你 ===== */
+.quiz-q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.quiz-q .qt{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.opts{display:grid;gap:8px}
+.opt{background:#faf5e6;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px;color:var(--ink2);cursor:pointer}
+.opt:active{border-color:var(--gold)}
+.opt.right{background:#eef3e2;border-color:#7a9a4e;color:#4a6b1f;font-weight:700}
+.opt.wrong{background:#f6e5e3;border-color:#c9847d;color:#8a3a32}
+.opt.disabled{pointer-events:none;opacity:.85}
+.explain{display:none;margin-top:10px;font-size:13.5px;color:var(--gold);background:#faf3e0;border-radius:8px;padding:9px 12px;line-height:1.7}
+.explain.show{display:block}
+.quiz-score{text-align:center;font-size:15px;color:var(--zhu);font-weight:700;margin-top:6px;letter-spacing:.1em;display:none}
+
+/* ===== 尾注 ===== */
+footer{margin-top:46px;text-align:center;padding-top:20px;border-top:1px solid var(--line)}
+footer p{font-size:12.5px;color:#a3957c;line-height:2}
+footer .motto{font-size:15px;color:var(--gold);letter-spacing:.3em;margin-bottom:6px}
+
+/* ===== 实景照片 ===== */
+.tower-photo{position:relative;border-radius:8px;overflow:hidden;background:#faf5e6;margin-bottom:12px;box-shadow:var(--shadow)}
+.tower-photo img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;object-position:center 35%;transition:transform .5s ease}
+.tower-photo:active img{transform:scale(1.03)}
+.tower-photo-cap{position:absolute;left:8px;bottom:8px;font-size:11.5px;color:#f7ecd5;background:rgba(46,28,20,.6);padding:3px 10px;border-radius:4px;letter-spacing:.05em;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);max-width:calc(100% - 16px);line-height:1.4}
+.tower-photos{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.tower-photos .tower-photo{margin:0}
+.tower-photos .tower-photo img{aspect-ratio:3/4;max-height:none;object-position:center 30%}
+.duo-panel{margin:14px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.duo-panel img{width:100%;height:auto;display:block}
+.duo-panel .duo-cap{padding:11px 14px;font-size:13px;color:var(--ink2);border-top:1px dashed var(--line);line-height:1.75}
+.duo-panel .duo-cap b{color:var(--zhu)}
+
+@media (max-width:400px){
+  .hero h1{font-size:28px}
+  .stat-grid{grid-template-columns:repeat(3,1fr)}
+  .stat b{font-size:18px}
+  .rnode .lbl{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="scroll-tag">一 卷 长 歌 · 四 塔 千 秋</div>
+  <h1>四塔记<small>·</small>《姑苏繁华图》</h1>
+  <div class="sub">徐扬笔下的姑苏宝塔图鉴</div>
+  <div class="seal">楞伽 · 瑞光 · 报恩 · 云岩</div>
+</div>
+
+<nav><div class="in">
+  <a href="#sec1" class="on">长卷概览</a>
+  <a href="#sec2">画中寻塔</a>
+  <a href="#sec3">四塔图鉴</a>
+  <a href="#sec4">高度比一比</a>
+  <a href="#sec5">冷知识</a>
+  <a href="#sec6">考考你</a>
+  <a href="#sec7">参观指南</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ================= 1 长卷概览 ================= -->
+<section id="sec1">
+  <div class="sec-head"><span class="no">壹</span><h2>十二米长卷里的苏州</h2></div>
+  <div class="card">
+    <p><b class="hl">《姑苏繁华图》</b>，原名<b class="hl">《盛世滋生图》</b>，清乾隆二十四年（1759）由苏州籍宫廷画师<b class="hl">徐扬</b>完成进呈。徐扬字云亭，家住<b class="gold-t">阊门专诸巷</b>，乾隆十六年（1751）帝南巡时献画获赏识，入宫如意馆供职，钦赐举人。他早年曾参与《苏州府城图》测绘，熟悉故乡大街小巷——这幅画因此不仅是艺术品，更像一部<b class="hl">纪实的"清代苏州影像志"</b>。</p>
+    <p>画卷自<b class="gold-t">灵岩山</b>起笔，经木渎、渡石湖、历上方山，穿狮、何两山间入郡城，过盘、胥、阊三门，出阊门转山塘，至<b class="gold-t">虎丘</b>收笔——"一村、一镇、一城、一街"，绵延数十里湖山市井尽收一卷。原藏清宫，著录于《石渠宝笈续编》，后由溥仪携出，几经流散，今为<b class="hl">辽宁省博物馆镇馆之宝、国家一级文物</b>。</p>
+    <div class="quote">全卷绘人物四千余人——辽宁省博物馆馆长组织专人逐一清点，得四千五百余人；苏州博物馆为迎此画来展亦专程复核，得四千八百余人；笔者亦曾逐一点数，得四千三百六十余人。三方数据不一，盖因画中教场一处人物极小且密集，无法准确清点，仅能估约三百至五百人，故全卷总数尚无定论。旧说"一万二千人"无从查据，系讹传。此外房屋两千一百四十余栋、桥梁五十余座、船只四百艘上下、可辨认招牌两百余块，涵盖五十多个手工行业——规模远超《清明上河图》，故有"北《清明》，南《姑苏》"之誉。</div>
+  </div>
+  <div class="stat-grid">
+    <div class="stat"><b>12.25米</b><span>卷长·纵35.8厘米</span></div>
+    <div class="stat"><b>4000+</b><span>画中人物（辽博/苏博复核）</span></div>
+    <div class="stat"><b>2年余</b><span>奉旨绘制</span></div>
+    <div class="stat"><b>2140+</b><span>房屋建筑</span></div>
+    <div class="stat"><b>400艘</b><span>各色船只</span></div>
+    <div class="stat"><b>4座</b><span>画中古塔</span></div>
+  </div>
+  <div class="note">2026年7月，此卷时隔二十年重回苏州，在<b>苏州博物馆西馆"姑苏繁华"特展</b>展出——画中狮子山下，再现画中繁华，观者如潮。</div>
+</section>
+
+<!-- ================= 2 画中寻塔 ================= -->
+<section id="sec2">
+  <div class="sec-head"><span class="no">贰</span><h2>画中寻塔</h2></div>
+  <div class="sec-sub">循着画家的行进路线，一路遇见四座宝塔</div>
+  <div class="route">
+    <p style="text-align:left;margin-top:0"><b class="hl">自西向东 · 点击塔名直达图鉴</b></p>
+    <div class="route-strip">
+      <div class="route-nodes">
+        <div class="rnode"><div class="dot"></div><div class="lbl">灵岩山<em>卷首</em></div></div>
+        <div class="rnode"><div class="dot"></div><div class="lbl">木渎镇<em>占半卷</em></div></div>
+        <div class="rnode tower" onclick="jumpTower('t-lengqie')"><div class="dot"></div><div class="lbl">石湖上方山<em>楞伽塔</em></div></div>
+        <div class="rnode"><div class="dot"></div><div class="lbl">狮山·何山<em>郊野</em></div></div>
+        <div class="rnode tower" onclick="jumpTower('t-ruiguang')"><div class="dot"></div><div class="lbl">盘门<em>瑞光塔</em></div></div>
+        <div class="rnode tower" onclick="jumpTower('t-beisi')"><div class="dot"></div><div class="lbl">阊门城内<em>北寺塔</em></div></div>
+        <div class="rnode"><div class="dot"></div><div class="lbl">山塘街<em>七里</em></div></div>
+        <div class="rnode tower" onclick="jumpTower('t-huqiu')"><div class="dot"></div><div class="lbl">虎丘<em>云岩寺塔</em></div></div>
+      </div>
+    </div>
+    <p>卷首灵岩山上<b>有寺无塔</b>（详见"冷知识"）；四塔依次登场：石湖段塔影娉婷的<b class="hl">楞伽塔</b>、盘门水陆城门旁的<b class="hl">瑞光塔</b>、阊门内远望所见的<b class="hl">北寺塔</b>，以及全卷收笔处视线的最终归宿——虎丘<b class="hl">云岩寺塔</b>。</p>
+  </div>
+</section>
+
+<!-- ================= 3 四塔图鉴 ================= -->
+<section id="sec3">
+  <div class="sec-head"><span class="no">叁</span><h2>四塔图鉴</h2></div>
+  <div class="sec-sub">点击卡片展开 · 年代 · 形制 · 掌故 · 出土文物</div>
+
+  <!-- 楞伽塔 -->
+  <div class="tower-card" id="t-lengqie">
+    <div class="tower-head" onclick="toggleTower(this)">
+      <div class="tower-glyph">
+        <svg width="34" height="52" viewBox="0 0 34 52"><g fill="none" stroke="#9e2b25" stroke-width="1.6"><path d="M17 2 L23 10 H11 Z"/><path d="M11 10 H23 L21 20 H13 Z"/><path d="M13 20 H21 L19.5 30 H14.5 Z"/><path d="M14.5 30 H19.5 L18.5 40 H15.5 Z"/><path d="M8 46 H26"/><path d="M5 50 H29"/></g></svg>
+        <span class="h">28.32米</span>
+      </div>
+      <div class="tower-tt">
+        <h3>楞伽塔</h3>
+        <div class="alias">又名上方塔 · 苏州第二古塔 · 第二斜塔</div>
+        <div class="pos">画中位置：石湖段——"渡石湖、历上方山"，塔立山巅</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+    <div class="tower-body"><div class="tower-in">
+            <div class="tower-photo">
+        <img src="img/lengqie-1.jpg" alt="上方山巅 · 楞伽塔全貌 · 杉林掩映">
+        <div class="tower-photo-cap">△ 上方山巅 · 楞伽塔全貌 · 杉林掩映</div>
+      </div>
+      <div class="tower-photos">
+        <div class="tower-photo">
+          <img src="img/lengqie-2.jpg" alt="近望 · 上方山下城市远景">
+          <div class="tower-photo-cap">△ 近望 · 上方山下城市远景</div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>始 建</b><span>隋大业四年（608）</span></div>
+        <div class="fact"><b>现存塔体</b><span>北宋太平兴国三年（978）重建</span></div>
+        <div class="fact"><b>形 制</b><span>七级八面 · 砖构仿木楼阁式</span></div>
+        <div class="fact"><b>文 保</b><span>1982年江苏省文物保护单位</span></div>
+      </div>
+      <h4>塔之本末</h4>
+      <p>隋大业四年，吴郡太守李显于上方山巅营造七层宝塔，以九舍利置其中。唐会昌五年（845）毁于灭佛，北宋太平兴国三年重建——塔砖至今存有"太平兴国三年""戊寅岁重建"铭文。明万历二十八年（1600）雷火大作，塔檐皆毁而砖甓独存；崇祯九年（1636）再修。今塔身微向西倾，是苏州<b class="hl">第二斜塔</b>；论年纪仅次于虎丘塔，故又称<b class="hl">苏州第二古塔</b>，与虎丘塔并称"姐妹塔"。</p>
+      <h4>画里画外</h4>
+      <p>石湖段是长卷中"轻快的田园牧歌"：行春桥、越城桥与楞伽塔同框，田畴禾苗、渔场农舍历历在目。今日从越城桥上望塔影，与徐扬笔下渐渐重叠。乾隆南巡曾雨中游上方山，留有诗作；山下治平寺即隋代新郭城治所，寺内越公井相传为杨素所浚。</p>
+      <div class="quote">"凡游吴中而不至石湖，不登行春，则与未始游无异。"——范成大《重修行春桥记》</div>
+      <div class="hbar-row"><div class="t"><b>楞伽塔 28.32米</b><span>（塔刹早毁，残高约23米）</span></div><div class="hbar"><i class="g" style="--w:37%"></i></div></div>
+    </div></div>
+  </div>
+
+  <!-- 瑞光塔 -->
+  <div class="tower-card" id="t-ruiguang">
+    <div class="tower-head" onclick="toggleTower(this)">
+      <div class="tower-glyph">
+        <svg width="34" height="52" viewBox="0 0 34 52"><g fill="none" stroke="#9e2b25" stroke-width="1.6"><path d="M17 2 L24 11 H10 Z"/><path d="M10 11 H24 L22 21 H12 Z"/><path d="M12 21 H22 L20.5 31 H13.5 Z"/><path d="M13.5 31 H20.5 L19 41 H15 Z"/><path d="M7 46 H27"/><path d="M4 50 H30"/></g></svg>
+        <span class="h">53.6米</span>
+      </div>
+      <div class="tower-tt">
+        <h3>瑞光塔</h3>
+        <div class="alias">盘门三景之一 · 江南宋塔的"标准器"</div>
+        <div class="pos">画中位置：盘门段——水陆城门之侧，临流照影</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+    <div class="tower-body"><div class="tower-in">
+            <div class="tower-photo">
+        <img src="img/ruiguang-3.jpg" alt="盘门段 · 瑞光塔通体 · 蓝天映衬">
+        <div class="tower-photo-cap">△ 盘门段 · 瑞光塔通体 · 蓝天映衬</div>
+      </div>
+      <div class="tower-photos">
+        <div class="tower-photo">
+          <img src="img/ruiguang-1.jpg" alt="仰观 · 砖木檐角与白墙">
+          <div class="tower-photo-cap">△ 仰观 · 砖木檐角与白墙</div>
+        </div>
+        <div class="tower-photo">
+          <img src="img/ruiguang-2.jpg" alt="塔身红漆与城楼">
+          <div class="tower-photo-cap">△ 塔身红漆与城楼</div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>塔 之 前 身</b><span>三国吴赤乌十年（247）十三级舍利塔</span></div>
+        <div class="fact"><b>现存塔体</b><span>北宋景德元年—天圣八年（1004–1030）</span></div>
+        <div class="fact"><b>形 制</b><span>七级八面 · 砖木混合楼阁式 · 副阶周匝</span></div>
+        <div class="fact"><b>文 保</b><span>1988年第三批全国重点文物保护单位</span></div>
+      </div>
+      <h4>报母恩的塔</h4>
+      <p>赤乌四年（241），西域康居国高僧性康远来吴郡讲经，吴大帝孙权为迎他建<b class="gold-t">普济禅院</b>；六年后，孙权<b class="hl">为报母恩</b>，于寺中建十三级舍利塔——这是瑞光塔的前身，也是苏州史上较早的佛塔。今塔为北宋所建，塔身砖砌基本为宋代原构，底层塔心"永定柱"做法在现存古建筑中罕见。</p>
+      <h4>千年不斜的秘诀</h4>
+      <p>瑞光塔吸取了虎丘塔地基失稳的教训：以石灰膏泥分层固结地基，底层砖砌转角处垫大磉石二十四块——故建塔近千年，<b class="hl">基本没有下沉与倾斜</b>。江南宋代以后建塔，多以瑞光塔为标准，它代表了宋代砖木混合楼阁式塔的成熟典范。</p>
+      <h4>天宫国宝</h4>
+      <p>1978年，塔的第三层砖龛中发现一批晚唐五代至北宋佛教文物，其中<b class="hl">真珠舍利宝幢</b>高122.6厘米，用珍珠四万余颗编串，幢内藏舍利九颗，八面缀纯金编龙八条、塔顶银龛坐佛……工艺之精令人咋舌，与碧纸金书《妙法莲华经》等同为<b class="hl">苏州博物馆镇馆重器</b>。</p>
+      <div class="hbar-row"><div class="t"><b>瑞光塔 53.6米</b><span>（塔刹9.14米）</span></div><div class="hbar"><i style="--w:70%"></i></div></div>
+      <div class="note">今日看点：与水陆盘门、吴门桥合称"盘门三景"。最上两层不对游客开放，可经文保所公众号"数字登塔"云上观塔。</div>
+    </div></div>
+  </div>
+
+  <!-- 北寺塔 -->
+  <div class="tower-card" id="t-beisi">
+    <div class="tower-head" onclick="toggleTower(this)">
+      <div class="tower-glyph">
+        <svg width="34" height="58" viewBox="0 0 34 58"><g fill="none" stroke="#9e2b25" stroke-width="1.6"><path d="M17 2 L25 12 H9 Z"/><path d="M9 12 H25 L23 22 H11 Z"/><path d="M11 22 H23 L21.5 32 H12.5 Z"/><path d="M12.5 32 H21.5 L20 42 H14 Z"/><path d="M14 42 H20 L18.5 50 H15.5 Z"/><path d="M8 53 H26"/><path d="M5 56 H29"/></g></svg>
+        <span class="h">76米</span>
+      </div>
+      <div class="tower-tt">
+        <h3>报恩寺塔（北寺塔）</h3>
+        <div class="alias">江南第一塔 · 为苏州诸塔之冠</div>
+        <div class="pos">画中位置：阊门段——入城后远望，"阊门内看到塔一座"</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+    <div class="tower-body"><div class="tower-in">
+            <div class="tower-photo">
+        <img src="img/beisi-1.jpg" alt="古城中轴 · 北寺塔通体 · 黑瓦粉墙环抱">
+        <div class="tower-photo-cap">△ 古城中轴 · 北寺塔通体 · 黑瓦粉墙环抱</div>
+      </div>
+      <div class="tower-photos">
+        <div class="tower-photo">
+          <img src="img/beisi-2.jpg" alt="近仰 · 塔檐与天空">
+          <div class="tower-photo-cap">△ 近仰 · 塔檐与天空</div>
+        </div>
+        <div class="tower-photo">
+          <img src="img/beisi-3.jpg" alt="城北天际 · 塔下民居">
+          <div class="tower-photo-cap">△ 城北天际 · 塔下民居</div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>始 建</b><span>相传三国东吴，为报恩而立寺</span></div>
+        <div class="fact"><b>现存塔体</b><span>南宋绍兴二十三年（1153）重建</span></div>
+        <div class="fact"><b>形 制</b><span>九级八面 · 砖木混合楼阁式</span></div>
+        <div class="fact"><b>文 保</b><span>2006年第六批全国重点文物保护单位</span></div>
+      </div>
+      <h4>一塔压全城</h4>
+      <p>北寺塔雄踞古城南北中轴，通高约<b class="hl">76米</b>，是苏州古塔高度之最，峻拔雄奇，"为苏州诸塔之冠"。老苏州有言：<b class="hl">"未进苏州城，先见北寺塔"</b>——在没有高楼的年代，它就是古城的第一地标。至今姑苏古城内建筑高度仍<b class="gold-t">不得超过25米</b>——约北寺塔三层之高，这是苏州人守了半个多世纪的天际线。</p>
+      <h4>报恩之名</h4>
+      <p>相传孙权为报乳母养育之恩建寺立塔，"报恩"之名由此而来——与瑞光塔"报母恩"的传说遥相呼应，一座城的两座塔，都从"感恩"起笔。今塔为南宋绍兴年间遗构，塔基须弥座石刻精湛，金甲护法力士、卷草如意纹饰犹存宋风。寺内另有张士诚记功碑等元末遗物。</p>
+      <div class="quote">"巍然一塔逼云寒，绝顶登临眼界宽。浅淡湖山归杖底，参差楼阁出云端。"——前人咏北寺塔</div>
+      <div class="hbar-row"><div class="t"><b>北寺塔 约76米</b><span>（一说74米）</span></div><div class="hbar"><i style="--w:100%"></i></div></div>
+      <div class="note">今日看点：报恩寺免费开放，地铁4号线北寺塔站直达；塔身今多不开放登临，塔前广场与柿子树是近年"网红小景"。</div>
+    </div></div>
+  </div>
+
+  <!-- 虎丘塔 -->
+  <div class="tower-card" id="t-huqiu">
+    <div class="tower-head" onclick="toggleTower(this)">
+      <div class="tower-glyph">
+        <svg width="34" height="52" viewBox="0 0 34 52"><g fill="none" stroke="#9e2b25" stroke-width="1.6"><path d="M19 2 L26 10 H12 Z"/><path d="M11.5 10 H25 L23.5 19 H13 Z"/><path d="M13 19 H23 L21.8 28 H14.5 Z"/><path d="M14.8 28 H21.5 L20.5 37 H16 Z"/><path d="M16.5 37 H20 L19.5 44 H17 Z"/><path d="M9 47 H28"/><path d="M6 50 H31"/></g></svg>
+        <span class="h">47.7米</span>
+      </div>
+      <div class="tower-tt">
+        <h3>云岩寺塔（虎丘塔）</h3>
+        <div class="alias">中国第一斜塔 · 东方比萨斜塔</div>
+        <div class="pos">画中位置：卷尾——"至虎丘山止"，全卷视线终点</div>
+      </div>
+      <div class="arrow">›</div>
+    </div>
+    <div class="tower-body"><div class="tower-in">
+            <div class="tower-photo">
+        <img src="img/huqiu-1.jpg" alt="虎丘山顶 · 云岩寺塔 · 中国第一斜塔">
+        <div class="tower-photo-cap">△ 虎丘山顶 · 云岩寺塔 · 中国第一斜塔</div>
+      </div>
+      <div class="tower-photos">
+        <div class="tower-photo">
+          <img src="img/huqiu-3.jpg" alt="林梢环抱 · 千年斜塔">
+          <div class="tower-photo-cap">△ 林梢环抱 · 千年斜塔</div>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>始 建</b><span>五代后周显德六年（959）</span></div>
+        <div class="fact"><b>落 成</b><span>北宋建隆二年（961）</span></div>
+        <div class="fact"><b>形 制</b><span>七级八面 · 砖构仿木楼阁式</span></div>
+        <div class="fact"><b>文 保</b><span>1961年第一批全国重点文物保护单位</span></div>
+      </div>
+      <h4>斜而不倒</h4>
+      <p>虎丘塔建于山顶松土之上，建成就开始倾斜——塔顶中心偏离底层中心<b class="hl">2.34米</b>，倾斜约2°48′，却屹立千年不倒，被称为<b class="hl">"中国第一斜塔""东方比萨斜塔"</b>，比比萨斜塔还年长百馀岁。它是江南现存最古老的砖塔、苏州唯一保存至今的五代建筑，塔内斗拱、宋式彩绘遗存犹在。</p>
+      <h4>塔藏秘色</h4>
+      <p>1957年二至四层维修时，塔内发现大批唐末五代吴越文物：佛经、佛像、织锦、铜器……其中最耀眼的，是出自第三层天宫的<b class="hl">越窑秘色瓷莲花碗</b>——"九秋风露越窑开，夺得千峰翠色来"，现为<b class="hl">苏州博物馆镇馆之宝</b>。</p>
+      <div class="quote">"先见虎丘塔，后见苏州城。"——旧时运河舟人谚语<br>"到苏州不游虎丘，乃憾事也。"——苏东坡</div>
+      <h4>画中的句点</h4>
+      <p>徐扬以虎丘收笔：山塘河蜿蜒七里，彩云、普济二桥之后，古塔在山顶巍然入画——康乾之际虎丘寺宇处处、殿阁重重，"远观有如山在寺中"。整幅长卷的万千繁华，最终都归于这一塔之影。</p>
+            <div class="duo-panel">
+        <img src="img/huqiu-2.jpg" alt="实景同框：虎丘塔与远处北寺塔同框一城天际——这是 1759 年徐扬画中"出阊门转山塘，至虎丘止"的当代读法。两塔相距约 4 公里，以古城的 76 米天际线为限，<b>近塔斜而不倒、远塔正而守中</b>。">
+        <div class="duo-cap">实景同框：<b>虎丘塔</b>与远处<b>北寺塔</b>同框一城天际——这是 1759 年徐扬画中"出阊门转山塘，至虎丘止"的当代读法。两塔相距约 4 公里，以古城 25 米限高为天际线，<b>近塔斜而不倒、远塔正而守中</b>。</div>
+      </div>
+      <div class="hbar-row"><div class="t"><b>虎丘塔 47.7米</b><span>（一说47.5米）</span></div><div class="hbar"><i style="--w:63%"></i></div></div>
+    </div></div>
+  </div>
+
+  <div class="note">四塔现存塔体的建成年份——虎丘塔961、楞伽塔978、瑞光塔1030、北寺塔1153——前后相距近两百年，同框于1759年的一幅画中；今天再看，又是二百六十馀年过去。<b>塔越千年，画只一瞬。</b></div>
+</section>
+
+<!-- ================= 4 高度对比 ================= -->
+<section id="sec4">
+  <div class="sec-head"><span class="no">肆</span><h2>高度比一比</h2></div>
+  <div class="cmp" id="cmp">
+    <h3>四塔身高排行榜</h3>
+    <div class="tip">以现存塔体通高计 · 点击按钮开始比试</div>
+    <div class="cbar-row"><div class="t"><b>北寺塔</b><span>约76米 · 九级八面</span></div><div class="cbar"><i style="--w:100%"></i></div></div>
+    <div class="cbar-row"><div class="t"><b>瑞光塔</b><span>53.6米 · 七级八面</span></div><div class="cbar"><i style="--w:70%"></i></div></div>
+    <div class="cbar-row"><div class="t"><b>虎丘塔</b><span>47.7米 · 七级八面</span></div><div class="cbar"><i style="--w:63%"></i></div></div>
+    <div class="cbar-row"><div class="t"><b>楞伽塔</b><span>28.32米 · 七级八面</span></div><div class="cbar"><i class="g" style="--w:37%"></i></div></div>
+    <button class="btn" id="cmpBtn" onclick="runCmp()">比 一 比</button>
+    <p style="font-size:13px;color:var(--gold);margin-top:12px;display:none" id="cmpMsg">画中最高的北寺塔（76米），却并非古城天际线的上限——苏州古城限高25米，约北寺塔三层之高，这条规矩从上世纪五十年代延续至今。</p>
+  </div>
+</section>
+
+<!-- ================= 5 冷知识 ================= -->
+<section id="sec5">
+  <div class="sec-head"><span class="no">伍</span><h2>冷知识 · 彩蛋</h2></div>
+  <div class="sec-sub">点击翻看答案</div>
+  <div class="egg-grid">
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">画卷从灵岩山起笔，为何灵岩山上见不到塔？</div><span class="mark">›</span>
+      <div class="a">灵岩山寺确有塔——灵岩塔，但它于清乾隆十五年（1750）才重修落成，次年乾隆便南巡到了苏州。学界推测徐扬的卷首部分此时已经画就，故画中灵岩山<b>有寺无塔</b>。一幅"纪实"长卷，也留下了时间的缝隙。</div>
+    </div>
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">四塔中有两座都传说是孙权"为报恩"而建，是哪两座？</div><span class="mark">›</span>
+      <div class="a"><b>瑞光塔</b>——孙权为报母恩建十三级舍利塔；<b>北寺塔</b>——相传孙权为报乳母养育之恩立报恩寺。一座城的两座名塔，都从"感恩"起笔，均属民间传说，姑妄听之。</div>
+    </div>
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">苏州博物馆的两件镇馆重器，恰好都出自这四座塔，是什么？</div><span class="mark">›</span>
+      <div class="a"><b>越窑秘色瓷莲花碗</b>——1957年出自虎丘塔第三层天宫；<b>真珠舍利宝幢</b>——1978年出自瑞光塔第三层砖龛。四塔不仅撑起了画中的天际线，还替苏州守着一批国宝。</div>
+    </div>
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">为什么姑苏古城里至今没有高楼？</div><span class="mark">›</span>
+      <div class="a">古城建筑限高<b>25米</b>——约北寺塔（76米）三层之高，这条规矩从上世纪五十年代延续至今。所以今天登高西望，古城轮廓仍与徐扬画中大差不差：这是属于一座城市的自律，也是《姑苏繁华图》还能"实景对照"的根本原因。</div>
+    </div>
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">画中的塔都能登吗？今天呢？</div><span class="mark">›</span>
+      <div class="a">清代塔多可登临，画中北寺塔、瑞光塔皆是登高揽胜之所。今天：<b>瑞光塔</b>可登（最上两层关闭，另有"数字登塔"）；<b>北寺塔</b>塔身一般不开放登临；<b>虎丘塔</b>、<b>楞伽塔</b>只可观瞻——千年老塔，重心要紧。</div>
+    </div>
+    <div class="egg" onclick="this.classList.toggle('flip')">
+      <div class="q">徐扬画完这卷画用了多少年？</div><span class="mark">›</span>
+      <div class="a">徐扬于<b>乾隆二十一年（1756）十一月十一日</b>奉旨起笔，<b>乾隆二十四年（1759）九月</b>完成进呈，历时约两年半。所谓"二十四年"实为完成之年（乾隆二十四年），并非作画年限——此乃常见误解。为了这十二米，徐扬踏遍了苏城内外、商街水巷——先有脚步，后有画笔。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6 考考你 ================= -->
+<section id="sec6">
+  <div class="sec-head"><span class="no">陆</span><h2>考考你</h2></div>
+  <div class="sec-sub">三道小题 · 答完看得分</div>
+
+  <div class="quiz-q" data-ans="1">
+    <div class="qt">一、四塔之中，哪一座在《姑苏繁华图》里最后出现？</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,false)">北寺塔</div>
+      <div class="opt" onclick="pick(this,true)">虎丘塔</div>
+      <div class="opt" onclick="pick(this,false)">瑞光塔</div>
+    </div>
+    <div class="explain">画卷"至虎丘山止"——云岩寺塔是全卷视线的最终归宿，画家的万千繁华都收笔于一塔之影。</div>
+  </div>
+
+  <div class="quiz-q" data-ans="2">
+    <div class="qt">二、苏州古城内建筑的高度，至今不得超过——</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,false)">76米（北寺塔之高）</div>
+      <div class="opt" onclick="pick(this,false)">53米（瑞光塔之高）</div>
+      <div class="opt" onclick="pick(this,true)">25米（约北寺塔三层）</div>
+    </div>
+    <div class="explain">古城限高25米，约北寺塔（76米）三层之高——并非北塔全高。这是苏州延续半个多世纪的天际线自律，也是古画能与今日实景对照的原因。</div>
+  </div>
+
+  <div class="quiz-q" data-ans="0">
+    <div class="qt">三、被称作"中国第一斜塔"的是哪一座？</div>
+    <div class="opts">
+      <div class="opt" onclick="pick(this,true)">虎丘塔</div>
+      <div class="opt" onclick="pick(this,false)">楞伽塔</div>
+      <div class="opt" onclick="pick(this,false)">瑞光塔</div>
+    </div>
+    <div class="explain">虎丘塔塔顶偏离底层中心2.34米、倾斜约2°48′，斜而不倒千年，比比萨斜塔还早百馀年。（楞伽塔微向西倾，是"第二斜塔"。）</div>
+  </div>
+
+  <div class="quiz-score" id="score"></div>
+</section>
+
+<!-- ================= 7 参观指南 ================= -->
+<section id="sec7">
+  <div class="sec-head"><span class="no">柒</span><h2>按图索塔 · 参观指南</h2></div>
+  <div class="card">
+    <p><b class="hl">虎丘塔</b>｜虎丘山风景名胜区（"运河十景"之一）——剑池、银杏大道与斜塔同游。</p>
+    <p><b class="hl">北寺塔</b>｜报恩寺（免费），地铁4号线北寺塔站——古城中轴起点，可串联拙政园、苏州博物馆。</p>
+    <p><b class="hl">瑞光塔</b>｜盘门景区——"盘门三景"（水陆盘门、吴门桥、瑞光塔），可游船环城河。</p>
+    <p><b class="hl">楞伽塔</b>｜上方山国家森林公园——登上方山望石湖，行春桥、越城桥、治平寺一线同游。</p>
+    <p><b class="hl">看真迹</b>｜《姑苏繁华图》真迹2026年7月起于<b>苏州博物馆西馆"姑苏繁华"特展</b>展出（时隔二十年回乡），参观信息以苏博官方公告为准。</p>
+    <p><b class="gold-t">推荐路线</b>：效仿徐扬自西向东——上午上方山·石湖（楞伽塔），午后盘门（瑞光塔）、北寺塔，黄昏山塘街至虎丘（虎丘塔）收尾，一日走完画中四塔。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="motto">塔 越 千 年 · 画 只 一 瞬</div>
+  <p>资料来源：辽宁省博物馆、《石渠宝笈续编》、苏州博物馆、人民日报、江苏广电、苏州市地方志等公开文献<br>
+  人物、高度等数据诸说并存者均已注明 · 仅作文化普及之用</p>
+</footer>
+
+</div>
+
+<script>
+/* 导航高亮 */
+var secs=document.querySelectorAll('section[id]');
+var navLinks=document.querySelectorAll('nav a');
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+90,cur=secs[0].id;
+  secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id});
+  navLinks.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+},{passive:true});
+
+/* 塔卡展开收起 */
+function toggleTower(head){
+  var card=head.parentElement,body=card.querySelector('.tower-body');
+  var open=card.classList.contains('open');
+  if(open){
+    body.style.maxHeight=body.scrollHeight+'px';
+    requestAnimationFrame(function(){body.style.maxHeight='0px'});
+    card.classList.remove('open');
+  }else{
+    card.classList.add('open');
+    body.style.maxHeight=body.scrollHeight+'px';
+    body.addEventListener('transitionend',function e(){
+      if(card.classList.contains('open'))body.style.maxHeight='none';
+      body.removeEventListener('transitionend',e);
+    });
+  }
+}
+/* 路线跳转 */
+function jumpTower(id){
+  var el=document.getElementById(id);
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'});
+  if(!el.classList.contains('open'))toggleTower(el.querySelector('.tower-head'));
+}
+/* 高度对比 */
+function runCmp(){
+  var box=document.getElementById('cmp');
+  if(box.classList.contains('on'))return;
+  box.classList.add('on');
+  document.getElementById('cmpMsg').style.display='block';
+  var b=document.getElementById('cmpBtn');b.disabled=true;b.textContent='胜 负 已 分';
+}
+/* 考考你 */
+var total=document.querySelectorAll('.quiz-q').length,done=0,right=0;
+function pick(el,isRight){
+  var q=el.closest('.quiz-q');
+  if(q.dataset.done)return;
+  q.dataset.done=1;done++;
+  if(isRight)right++;
+  el.classList.add(isRight?'right':'wrong');
+  var ans=parseInt(q.dataset.ans);
+  q.querySelectorAll('.opt')[ans].classList.add('right');
+  q.querySelectorAll('.opt').forEach(function(o){o.classList.add('disabled')});
+  q.querySelector('.explain').classList.add('show');
+  if(done===total){
+    var s=document.getElementById('score');
+    s.style.display='block';
+    s.textContent='得分：'+right+' / '+total+(right===total?' · 满分！画中四塔已尽收眼底':'');
+  }
+}
+</script>
+</body>
+</html>
