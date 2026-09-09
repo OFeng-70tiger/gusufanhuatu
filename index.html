@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="你每天走过的路，270年前就出现在一幅画里。四章节46个打卡点，带古画和今天照片，从灵岩山到虎丘，玩一场跨越270年的找不同。苏州文化公益课堂。">
+<meta name="format-detection" content="telephone=no">
+<!-- 微信分享 Meta -->
+<meta property="og:title" content="姑苏繁华图 · 270年找不同">
+<meta property="og:description" content="四章节46个打卡点，从灵岩山到虎丘，跨越270年的古今对照找不同。苏州文化公益课堂。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="苏州文化公益课堂">
+<title>姑苏繁华图 · 270年找不同 | 苏州文化公益课堂</title>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Serif SC","Songti SC","SimSun",serif;
+    background:#F5EFE3;color:#2B1810;line-height:1.8;overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-text-size-adjust:100%;
+    -webkit-overflow-scrolling:touch;
+  }
+  a{text-decoration:none;color:inherit}
+  :root{
+    --vermilion:#9B2226;--vermilion-l:#C44536;
+    --gold:#B8923E;--gold-l:#D4A84B;--gold-soft:rgba(184,146,62,0.12);
+    --ink:#2B1810;--ink-l:#5C4A3A;
+    --paper:#F5EFE3;--paper-d:#EBE0CE;--paper-w:#FDFBF7;
+    --jade:#4A6B5C;--jade-l:#5D8270;
+    --bronze:#8B6F47;--bronze-l:#A68458;--bronze-soft:rgba(139,111,71,0.12);
+  }
+  /* 导航 */
+  .nav-bar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(245,239,227,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(184,146,62,0.25);display:flex;align-items:center;justify-content:space-between;padding:0.6rem 2rem;transition:box-shadow .3s}
+  .nav-bar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+  .nav-brand{font-size:1.05rem;font-weight:bold;color:var(--vermilion);letter-spacing:0.05em}
+  .nav-brand span{color:var(--gold);font-weight:normal;font-size:0.82rem}
+  .nav-links{display:flex;gap:1.5rem}
+  .nav-links a{font-size:0.85rem;color:var(--ink-l);transition:color .3s;position:relative;cursor:pointer}
+  .nav-links a:hover{color:var(--vermilion)}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--vermilion);transition:width .3s}
+  .nav-links a:hover::after{width:100%}
+  @media(max-width:680px){.nav-bar{padding:0.5rem 1rem}.nav-links{gap:0.8rem}.nav-links a{font-size:0.75rem}.nav-brand span{display:none}}
+  /* 通用 */
+  .wrap{max-width:920px;margin:0 auto;padding:0 1.5rem}
+  .section{padding:4.5rem 0;position:relative}
+  .section-title{text-align:center;margin-bottom:2.5rem}
+  .section-title h2{font-size:1.8rem;color:var(--vermilion);letter-spacing:0.1em;position:relative;display:inline-block}
+  .section-title h2::before,.section-title h2::after{content:'';position:absolute;top:50%;width:40px;height:1px;background:var(--gold)}
+  .section-title h2::before{right:calc(100% + 1rem)}
+  .section-title h2::after{left:calc(100% + 1rem)}
+  .section-title p{color:var(--gold);font-size:0.85rem;margin-top:0.5rem;letter-spacing:0.08em}
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#F5EFE3 0%,#EBE0CE 100%);padding-top:3rem}
+  .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(155,34,38,0.03) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(184,146,62,0.05) 0%,transparent 50%);pointer-events:none}
+  .hero-mountains{position:absolute;bottom:0;left:0;right:0;height:180px;opacity:0.08;pointer-events:none}
+  .hero-inner{text-align:center;position:relative;z-index:2;max-width:680px;padding:0 1.5rem}
+  /* 古画插图 */
+  .hero-painting{
+    display:inline-block;margin-bottom:1.8rem;
+    position:relative;
+  }
+  .hero-painting img{
+    display:block;
+    max-width:320px;width:100%;height:auto;
+    border:1px solid rgba(184,146,62,0.35);
+    border-radius:4px;
+    box-shadow:
+      0 4px 18px rgba(43,24,16,0.15),
+      0 0 0 6px var(--paper-w),
+      0 0 0 7px rgba(184,146,62,0.2);
+    background:var(--paper-w);
+  }
+  .hero-painting .painting-caption{
+    font-size:0.72rem;color:var(--gold);
+    margin-top:0.7rem;letter-spacing:0.1em;
+    text-align:center;font-style:italic;
+  }
+  .hero-painting .painting-caption em{
+    color:var(--vermilion);font-style:normal;font-weight:bold;
+  }
+  .hero-badge{display:inline-block;background:var(--gold-soft);border:1px solid rgba(184,146,62,0.3);color:var(--gold);font-size:0.75rem;letter-spacing:0.15em;padding:0.35rem 1.2rem;border-radius:20px;margin-bottom:1.5rem}
+  .hero h1{font-size:2.8rem;color:var(--vermilion);letter-spacing:0.15em;line-height:1.4;margin-bottom:1rem;font-weight:bold}
+  .hero h1 .gold{color:var(--gold);font-size:1.4rem;display:block;margin-top:0.3rem}
+  .hero-tagline{font-size:1.05rem;color:var(--ink-l);line-height:2;margin-bottom:2rem}
+  .hero-tagline em{color:var(--vermilion);font-style:normal;font-weight:bold;border-bottom:2px solid var(--gold-l);padding:0 2px}
+  .hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin:2rem 0}
+  .stat-item{text-align:center;padding:0.5rem 1rem;border-right:1px solid rgba(184,146,62,0.25)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-size:1.6rem;color:var(--vermilion);font-weight:bold;line-height:1}
+  .stat-label{font-size:0.75rem;color:var(--gold);margin-top:0.3rem;letter-spacing:0.05em}
+  .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gold);font-size:0.75rem;letter-spacing:0.1em;text-align:center;animation:bounce 2s infinite}
+  .scroll-hint .arrow{display:block;width:1px;height:30px;background:var(--gold);margin:0.5rem auto 0}
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  @media(max-width:680px){.hero h1{font-size:2rem}.hero h1 .gold{font-size:1.1rem}.hero-tagline{font-size:0.92rem}.hero-stats{gap:0.8rem}.stat-item{padding:0.3rem 0.6rem}.stat-num{font-size:1.3rem}}
+  /* 古今对照 */
+  .compare-section{background:var(--paper-w)}
+  .compare-intro{text-align:center;color:var(--ink-l);max-width:560px;margin:0 auto 2.5rem;font-size:0.95rem}
+  .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+  .compare-card{background:var(--paper);border:1px solid rgba(184,146,62,0.2);border-radius:8px;padding:1.5rem 1.2rem;cursor:pointer;transition:all .35s ease;position:relative;overflow:hidden}
+  .compare-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--vermilion);transform:scaleY(0);transform-origin:top;transition:transform .35s}
+  .compare-card:hover::before,.compare-card.active::before{transform:scaleY(1)}
+  .compare-card:hover{border-color:var(--gold-l);box-shadow:0 4px 20px rgba(0,0,0,0.06);transform:translateY(-2px)}
+  .compare-card .compare-loc{font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:0.4rem}
+  .compare-card .compare-q{font-size:1rem;color:var(--ink);font-weight:bold;margin-bottom:0.8rem}
+  .compare-answers{display:flex;gap:1rem;font-size:0.85rem}
+  .compare-answer{flex:1;padding:0.6rem 0.8rem;border-radius:6px;transition:all .3s}
+  .compare-answer .a-label{font-size:0.7rem;letter-spacing:0.1em;margin-bottom:0.2rem}
+  .compare-answer.old{background:var(--gold-soft);border:1px solid rgba(184,146,62,0.2)}
+  .compare-answer.old .a-label{color:var(--gold)}
+  .compare-answer.old .a-text{color:var(--ink-l)}
+  .compare-answer.now{background:rgba(155,34,38,0.04);border:1px solid rgba(155,34,38,0.15)}
+  .compare-answer.now .a-label{color:var(--vermilion)}
+  .compare-answer.now .a-text{color:var(--vermilion);font-weight:bold;opacity:0;transform:translateY(4px);transition:all .35s}
+  .compare-card.revealed .compare-answer.now .a-text{opacity:1;transform:translateY(0)}
+  .compare-card .compare-hint{font-size:0.7rem;color:var(--gold);margin-top:0.6rem;text-align:right;opacity:0.7}
+  .compare-card.revealed .compare-hint{display:none}
+  /* 路线图 */
+  .route-section{background:var(--paper-d)}
+  .route-map{position:relative;background:var(--paper-w);border:1px solid rgba(184,146,62,0.2);border-radius:12px;padding:2rem 1.5rem;margin-top:1rem}
+  .route-line{position:relative;display:flex;justify-content:space-between;align-items:flex-start;min-height:80px;flex-wrap:wrap;gap:0.5rem}
+  .route-line::before{content:'';position:absolute;top:18px;left:4%;right:4%;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,transparent 6px,transparent 12px)}
+  .route-stop{text-align:center;position:relative;z-index:2;flex:1;min-width:80px}
+  .route-dot{width:36px;height:36px;border-radius:50%;background:var(--vermilion);color:var(--paper-w);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:bold;margin:0 auto 0.5rem;box-shadow:0 2px 8px rgba(155,34,38,0.25);cursor:pointer;transition:transform .3s}
+  .route-dot:hover{transform:scale(1.15)}
+  .route-dot.gold{background:var(--gold)}
+  .route-dot.jade{background:var(--jade)}
+  .route-dot.bronze{background:var(--bronze)}
+  .route-name{font-size:0.85rem;color:var(--ink);font-weight:bold}
+  .route-sub{font-size:0.7rem;color:var(--gold);margin-top:0.2rem}
+  @media(max-width:680px){.route-name{font-size:0.72rem}.route-sub{font-size:0.65rem}.route-dot{width:30px;height:30px;font-size:0.65rem}.route-stop{min-width:60px}}
+  /* 章节卡片 */
+  .lecture-section{background:var(--paper)}
+  .lecture-tabs{display:flex;gap:0.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+  .lecture-tab{padding:0.6rem 1.4rem;border:1px solid rgba(184,146,62,0.3);border-radius:24px;background:var(--paper-w);color:var(--ink-l);font-size:0.85rem;cursor:pointer;transition:all .3s;letter-spacing:0.05em}
+  .lecture-tab:hover{border-color:var(--vermilion-l);color:var(--vermilion)}
+  .lecture-tab.active{background:var(--vermilion);border-color:var(--vermilion);color:var(--paper-w);box-shadow:0 2px 12px rgba(155,34,38,0.25)}
+  .lecture-tab.active[data-tab="l2"]{background:var(--gold);border-color:var(--gold)}
+  .lecture-tab.active[data-tab="l3"]{background:var(--jade);border-color:var(--jade)}
+  .lecture-tab.active[data-tab="l4"]{background:var(--bronze);border-color:var(--bronze)}
+  .lecture-panel{display:none;animation:fadeIn .5s ease}
+  .lecture-panel.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .lecture-card{background:var(--paper-w);border:1px solid rgba(184,146,62,0.2);border-radius:12px;overflow:hidden}
+  .lecture-header{display:flex;align-items:center;gap:1rem;padding:1.5rem;border-bottom:1px solid rgba(184,146,62,0.15)}
+  .lecture-num{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--vermilion),var(--vermilion-l));color:var(--paper-w);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:bold;box-shadow:0 3px 12px rgba(155,34,38,0.25)}
+  .lecture-num.gold{background:linear-gradient(135deg,var(--gold),var(--gold-l));box-shadow:0 3px 12px rgba(184,146,62,0.25)}
+  .lecture-num.jade{background:linear-gradient(135deg,var(--jade),var(--jade-l));box-shadow:0 3px 12px rgba(74,107,92,0.25)}
+  .lecture-num.bronze{background:linear-gradient(135deg,var(--bronze),var(--bronze-l));box-shadow:0 3px 12px rgba(139,111,71,0.25)}
+  .lecture-header-text h3{font-size:1.15rem;color:var(--vermilion);letter-spacing:0.05em}
+  .lecture-header-text p{font-size:0.8rem;color:var(--gold);margin-top:0.2rem}
+  .lecture-segments{padding:1.2rem 1.5rem}
+  .segment-block{margin-bottom:1.2rem}
+  .segment-block:last-child{margin-bottom:0}
+  .segment-title{font-size:0.85rem;color:var(--vermilion);font-weight:bold;margin-bottom:0.6rem;padding-left:0.6rem;border-left:3px solid var(--gold-l)}
+  .segment-title .seg-num{color:var(--gold);font-weight:normal;font-size:0.78rem;margin-left:0.4rem}
+  .lecture-points{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.5rem}
+  .point-chip{display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.8rem;background:var(--paper);border:1px solid rgba(184,146,62,0.12);border-radius:6px;font-size:0.82rem;transition:all .3s;cursor:default}
+  .point-chip:hover{border-color:var(--gold-l);background:var(--paper-w);transform:translateX(2px)}
+  .point-chip .chip-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold-soft);color:var(--gold);font-size:0.65rem;font-weight:bold;display:flex;align-items:center;justify-content:center}
+  .point-chip:hover .chip-num{background:var(--vermilion);color:var(--paper-w)}
+  .lecture-footer{padding:1rem 1.5rem;border-top:1px solid rgba(184,146,62,0.15);display:flex;justify-content:space-between;align-items:center;font-size:0.8rem}
+  .lecture-footer .lf-left{color:var(--ink-l)}
+  .lecture-footer .lf-right{color:var(--vermilion);font-weight:bold}
+  .lecture-footer .lf-right span{font-size:1.3rem}
+  /* 打卡墙 */
+  .progress-section{background:var(--paper-w)}
+  .progress-bar-wrap{max-width:560px;margin:0 auto 2rem;text-align:center}
+  .progress-label{font-size:0.85rem;color:var(--ink-l);margin-bottom:0.5rem}
+  .progress-label span{color:var(--vermilion);font-weight:bold}
+  .progress-bar{height:12px;background:var(--paper-d);border-radius:6px;overflow:hidden;position:relative}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--vermilion));border-radius:6px;transition:width 1.5s ease}
+  .progress-marks{display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.7rem;color:var(--gold)}
+  .checkpoints-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:0.4rem;max-width:640px;margin:0 auto}
+  .cp-cell{aspect-ratio:1;border-radius:6px;background:var(--paper-d);border:1px solid rgba(184,146,62,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--gold);cursor:pointer;transition:all .3s;position:relative}
+  .cp-cell:hover{transform:scale(1.1);z-index:5;color:var(--paper-w)}
+  .cp-cell.l1{border-color:rgba(155,34,38,0.2)}
+  .cp-cell.l2{border-color:rgba(184,146,62,0.25)}
+  .cp-cell.l3{border-color:rgba(74,107,92,0.25)}
+  .cp-cell.l4{border-color:rgba(139,111,71,0.25)}
+  .cp-cell.l1:hover{background:var(--vermilion);border-color:var(--vermilion)}
+  .cp-cell.l2:hover{background:var(--gold);border-color:var(--gold)}
+  .cp-cell.l3:hover{background:var(--jade);border-color:var(--jade)}
+  .cp-cell.l4:hover{background:var(--bronze);border-color:var(--bronze)}
+  .cp-tooltip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper-w);padding:0.35rem 0.6rem;border-radius:4px;font-size:0.7rem;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}
+  .cp-cell:hover .cp-tooltip{opacity:1}
+  /* 收获 */
+  .gain-section{background:var(--paper)}
+  .gain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .gain-card{background:var(--paper-w);border:1px solid rgba(184,146,62,0.15);border-radius:10px;padding:1.5rem 1.2rem;text-align:center;transition:all .35s}
+  .gain-card:hover{border-color:var(--gold-l);transform:translateY(-4px);box-shadow:0 6px 24px rgba(0,0,0,0.06)}
+  .gain-icon{font-size:1.8rem;margin-bottom:0.8rem}
+  .gain-card h4{font-size:0.95rem;color:var(--vermilion);margin-bottom:0.4rem;letter-spacing:0.03em}
+  .gain-card p{font-size:0.8rem;color:var(--ink-l);line-height:1.6}
+  /* CTA */
+  .cta-section{background:linear-gradient(135deg,var(--vermilion),var(--vermilion-l));padding:3.5rem 0;text-align:center;position:relative;overflow:hidden}
+  .cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.04) 0%,transparent 40%)}
+  .cta-inner{position:relative;z-index:2;max-width:560px;margin:0 auto;padding:0 1.5rem}
+  .cta-section h2{font-size:1.5rem;color:var(--paper-w);letter-spacing:0.1em;margin-bottom:0.8rem}
+  .cta-section p{font-size:0.92rem;color:rgba(255,255,255,0.82);line-height:1.8;margin-bottom:1.5rem}
+  .cta-btn{display:inline-block;background:var(--paper-w);color:var(--vermilion);padding:0.7rem 2rem;border-radius:30px;font-size:0.9rem;font-weight:bold;letter-spacing:0.1em;transition:all .3s;border:none;cursor:pointer}
+  .cta-btn:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+  footer{background:var(--paper-d);padding:2rem 0;text-align:center}
+  footer p{font-size:0.8rem;color:var(--gold);line-height:1.8}
+  footer p strong{color:var(--vermilion)}
+  /* 悬浮分享按钮 */
+  .share-fab{
+    position:fixed;bottom:1.5rem;right:1.2rem;z-index:999;
+    width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(135deg,var(--vermilion),var(--vermilion-l));
+    color:var(--paper-w);font-size:0.78rem;letter-spacing:0.05em;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(155,34,38,0.35);
+    cursor:pointer;border:none;font-family:inherit;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .share-fab:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(155,34,38,0.45)}
+  .share-fab:active{transform:scale(0.95)}
+  /* 分享提示遮罩 */
+  .share-mask{
+    position:fixed;inset:0;z-index:1001;
+    background:rgba(0,0,0,0.55);
+    display:none;align-items:flex-start;justify-content:flex-end;
+    padding-top:0.5rem;padding-right:1rem;
+    cursor:pointer;
+  }
+  .share-mask.show{display:flex;animation:fadeIn .3s}
+  .share-arrow{
+    color:#fff;font-size:2.5rem;line-height:1;
+    margin-right:1.5rem;animation:bounce2 1s infinite;
+  }
+  @keyframes bounce2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  .share-tip{
+    color:#fff;font-size:0.9rem;line-height:1.8;
+    text-align:center;margin-top:0.3rem;
+  }
+  .share-tip strong{font-size:1.05rem}
+  /* 路线图移动端横滑 */
+  .route-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .route-scroll::-webkit-scrollbar{height:4px}
+  .route-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+  @media(max-width:680px){.section{padding:3rem 0}.section-title h2{font-size:1.4rem}.lecture-header{padding:1rem}.lecture-num{width:44px;height:44px;font-size:1.1rem}.lecture-header-text h3{font-size:1rem}.lecture-segments{padding:1rem}.point-chip{font-size:0.75rem;padding:0.4rem 0.6rem}.compare-card{padding:1.2rem 1rem}.gain-card{padding:1.2rem 1rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav-bar" id="navBar">
+  <div class="nav-brand">姑苏繁华图 <span>· 270年找不同</span></div>
+  <div class="nav-links">
+    <a onclick="scrollToSec('hero')">开篇</a>
+    <a onclick="scrollToSec('compare')">古今对照</a>
+    <a onclick="scrollToSec('route')">路线</a>
+    <a onclick="scrollToSec('lectures')">四章</a>
+    <a onclick="scrollToSec('checkpoints')">46点位</a>
+    <a onclick="scrollToSec('gain')">收获</a>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <svg class="hero-mountains" viewBox="0 0 1200 180" preserveAspectRatio="none">
+    <path d="M0,180 L0,120 Q100,60 200,90 T400,70 T600,100 T800,50 T1000,80 T1200,60 L1200,180 Z" fill="#9B2226"/>
+    <path d="M0,180 L0,140 Q150,100 300,120 T600,110 T900,130 T1200,100 L1200,180 Z" fill="#B8923E" opacity="0.6"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-badge">苏州文化公益课堂 · 社区课程</span>
+    <div class="hero-painting">
+      <img src="changmen.jpg" alt="《姑苏繁华图》阊门城楼段局部" loading="eager">
+      <div class="painting-caption">清 · 徐扬 <em>《姑苏繁华图》</em> 卷 · 阊门城楼段局部（乾隆二十四年 · 1759）</div>
+    </div>
+    <h1>你每天走过的路<br>270年前就出现在一幅画里
+      <span class="gold">姑苏繁华图 · 古今场景找不同</span>
+    </h1>
+    <p class="hero-tagline">
+      公元<em>1759年</em>，苏州画家徐扬花了<em>三年</em>时间，<br>
+      画了一幅<em>12米长卷</em>——《姑苏繁华图》。
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">4500+</div><div class="stat-label">人物</div></div>
+      <div class="stat-item"><div class="stat-num">2000+</div><div class="stat-label">间房屋</div></div>
+      <div class="stat-item"><div class="stat-num">400</div><div class="stat-label">艘船</div></div>
+      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">座桥</div></div>
+      <div class="stat-item"><div class="stat-num">270</div><div class="stat-label">年时光</div></div>
+    </div>
+    <p class="hero-tagline" style="font-size:0.88rem;color:var(--gold)">
+      从灵岩山画到虎丘，把乾隆年间的苏州整座城搬上了画卷。
+    </p>
+  </div>
+  <div class="scroll-hint">向下滚动，开启穿越之旅<div class="arrow"></div></div>
+</section>
+
+<!-- ===== 古今对照 ===== -->
+<section class="section compare-section" id="compare">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>270年，变了什么？</h2>
+      <p>CLICK TO REVEAL · 点击卡片揭晓答案</p>
+    </div>
+    <p class="compare-intro">
+      山前村还在，木渎敌楼拆了；吴门桥三个桥洞只剩一个……<br>
+      变了的，是沧海桑田；没变的，是你脚下这条街、这座桥、这条河。
+    </p>
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 路线图 ===== -->
+<section class="section route-section" id="route">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>一幅长卷，一座城</h2>
+      <p>灵岩山 → 虎丘 · 全程46个打卡点</p>
+    </div>
+    <div class="route-map">
+      <div class="route-line">
+        <div class="route-stop">
+          <div class="route-dot">起</div>
+          <div class="route-name">灵岩山</div>
+          <div class="route-sub">画卷起点</div>
+        </div>
+        <div class="route-stop">
+          <div class="route-dot">壹</div>
+          <div class="route-name">城外山水</div>
+          <div class="route-sub">木渎·胥江·石湖 · 13点</div>
+        </div>
+        <div class="route-stop">
+          <div class="route-dot gold">贰</div>
+          <div class="route-name">直达姑苏</div>
+          <div class="route-sub">接官码头 · 8点</div>
+        </div>
+        <div class="route-stop">
+          <div class="route-dot jade">叁</div>
+          <div class="route-name">城内繁华</div>
+          <div class="route-sub">官署街市古迹 · 16点</div>
+        </div>
+        <div class="route-stop">
+          <div class="route-dot bronze">肆</div>
+          <div class="route-name">七里山塘</div>
+          <div class="route-sub">阊门→虎丘 · 9点</div>
+        </div>
+        <div class="route-stop">
+          <div class="route-dot" style="background:var(--ink)">终</div>
+          <div class="route-name">虎丘山</div>
+          <div class="route-sub">画卷终点</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 四章节 ===== -->
+<section class="section lecture-section" id="lectures">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>四章节，四十六个打卡点</h2>
+      <p>从灵岩山找到虎丘山</p>
+    </div>
+    <div class="lecture-tabs">
+      <div class="lecture-tab active" data-tab="l1">第一章 · 城外山水</div>
+      <div class="lecture-tab" data-tab="l2">第二章 · 直达姑苏</div>
+      <div class="lecture-tab" data-tab="l3">第三章 · 城内繁华</div>
+      <div class="lecture-tab" data-tab="l4">第四章 · 七里山塘</div>
+    </div>
+    <!-- 第一章 -->
+    <div class="lecture-panel active" id="l1">
+      <div class="lecture-card">
+        <div class="lecture-header">
+          <div class="lecture-num">壹</div>
+          <div class="lecture-header-text">
+            <h3>城外山水</h3>
+            <p>木渎古镇 · 胥江运河 · 石湖风光 · 13个点位</p>
+          </div>
+        </div>
+        <div class="lecture-segments" id="segs-l1"></div>
+        <div class="lecture-footer">
+          <span class="lf-left">从灵岩山麓出发，经木渎、胥江，至石湖风光</span>
+          <span class="lf-right">13<span> 点</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- 第二章 -->
+    <div class="lecture-panel" id="l2">
+      <div class="lecture-card">
+        <div class="lecture-header">
+          <div class="lecture-num gold">贰</div>
+          <div class="lecture-header-text">
+            <h3>直达姑苏</h3>
+            <p>接官码头 · 直达姑苏 · 8个点位</p>
+          </div>
+        </div>
+        <div class="lecture-segments" id="segs-l2"></div>
+        <div class="lecture-footer">
+          <span class="lf-left">从城外入城，狮子山、何山一路到胥门接官码头</span>
+          <span class="lf-right">8<span> 点</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- 第三章 -->
+    <div class="lecture-panel" id="l3">
+      <div class="lecture-card">
+        <div class="lecture-header">
+          <div class="lecture-num jade">叁</div>
+          <div class="lecture-header-text">
+            <h3>城内繁华</h3>
+            <p>官署 · 街市 · 古迹 · 16个点位</p>
+          </div>
+        </div>
+        <div class="lecture-segments" id="segs-l3"></div>
+        <div class="lecture-footer">
+          <span class="lf-left">穿行府署、书院、街市，感受城内繁华</span>
+          <span class="lf-right">16<span> 点</span></span>
+        </div>
+      </div>
+    </div>
+    <!-- 第四章 -->
+    <div class="lecture-panel" id="l4">
+      <div class="lecture-card">
+        <div class="lecture-header">
+          <div class="lecture-num bronze">肆</div>
+          <div class="lecture-header-text">
+            <h3>七里山塘</h3>
+            <p>阊门 → 七里山塘 → 虎丘 · 9个点位</p>
+          </div>
+        </div>
+        <div class="lecture-segments" id="segs-l4"></div>
+        <div class="lecture-footer">
+          <span class="lf-left">出阊门，走七里山塘，终抵虎丘山</span>
+          <span class="lf-right">9<span> 点</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 46点位 ===== -->
+<section class="section progress-section" id="checkpoints">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>46个打卡点位</h2>
+      <p>HOVER TO SEE · 悬停查看点位名称</p>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-label">全程打卡进度：<span id="progressText">0 / 46</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-marks">
+        <span>灵岩山</span><span>木渎</span><span>胥江</span><span>石湖</span><span>接官码头</span><span>城内</span><span>阊门</span><span>山塘</span><span>虎丘</span>
+      </div>
+    </div>
+    <div class="checkpoints-grid" id="cpGrid"></div>
+    <div style="text-align:center;margin-top:1.5rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap">
+      <span style="font-size:0.8rem;color:var(--vermilion)">● 第一章 · 13点</span>
+      <span style="font-size:0.8rem;color:var(--gold)">● 第二章 · 8点</span>
+      <span style="font-size:0.8rem;color:var(--jade)">● 第三章 · 16点</span>
+      <span style="font-size:0.8rem;color:var(--bronze)">● 第四章 · 9点</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 收获 ===== -->
+<section class="section gain-section" id="gain">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>你将收获</h2>
+      <p>上完这门课，再走一遍苏州城</p>
+    </div>
+    <div class="gain-grid">
+      <div class="gain-card"><div class="gain-icon">🔍</div><h4>重新认识苏州</h4><p>你以为熟悉的地方，其实藏着270年的秘密</p></div>
+      <div class="gain-card"><div class="gain-icon">🖼️</div><h4>古画对照实景</h4><p>每节课带古画局部和今天照片，边看边找</p></div>
+      <div class="gain-card"><div class="gain-icon">💬</div><h4>故事+互动</h4><p>不是干巴巴听讲，是大家一起"找不同"、聊苏州</p></div>
+      <div class="gain-card"><div class="gain-icon">📸</div><h4>实地打卡指南</h4><p>46个点位，哪些还能看到、哪些只能想象，课上全告诉你</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>眼里看到的，完全不一样了</h2>
+    <p>四章节，46个打卡点，从灵岩山找到虎丘山。<br>带着古画和今天的照片，一起玩一场跨越270年的"找不同"。</p>
+    <button class="cta-btn" onclick="scrollToSec('compare')">立即体验找不同</button>
+  </div>
+</section>
+
+<footer>
+  <p><strong>姑苏繁华图 · 270年找不同</strong><br>
+  苏州文化公益课堂 · 社区课程<br>
+  展览来源：苏州博物馆西馆</p>
+</footer>
+
+<!-- 悬浮分享按钮 -->
+<button class="share-fab" id="shareFab">分享</button>
+
+<!-- 分享提示遮罩 -->
+<div class="share-mask" id="shareMask">
+  <div style="text-align:center;padding-top:1.5rem">
+    <div class="share-arrow">↗</div>
+    <div class="share-tip"><strong>点击右上角 ···</strong><br>分享给朋友或朋友圈</div>
+  </div>
+</div>
+
+<script>
+// 导航
+const navBar = document.getElementById('navBar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) navBar.classList.add('scrolled');
+  else navBar.classList.remove('scrolled');
+});
+function scrollToSec(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+
+// 悬浮分享按钮
+const shareFab = document.getElementById('shareFab');
+const shareMask = document.getElementById('shareMask');
+shareFab.addEventListener('click', () => {
+  shareMask.classList.add('show');
+});
+shareMask.addEventListener('click', () => {
+  shareMask.classList.remove('show');
+});
+// 滚动时自动隐藏分享按钮
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const cur = window.scrollY;
+  if (cur > lastScroll && cur > 300) shareFab.style.opacity = '0.5';
+  else shareFab.style.opacity = '1';
+  lastScroll = cur;
+});
+
+// 古今对照
+const compareData = [
+  { loc:'木渎 · 山前村', q:'山前村还在吗？', old:'画中村舍依山，炊烟袅袅', now:'村基尚在，街巷犹存' },
+  { loc:'木渎 · 敌楼', q:'木渎敌楼还在吗？', old:'画中敌楼巍然，扼守要道', now:'早已拆除，仅余地名' },
+  { loc:'盘门 · 吴门桥', q:'吴门桥几个桥洞？', old:'画中三孔石拱，水阔桥高', now:'三洞只剩一个' },
+  { loc:'城西 · 万年桥', q:'万年桥什么形状？', old:'画中台阶石梁，行人拾级', now:'改为石拱桥' },
+  { loc:'城内 · 吴县文庙', q:'吴县文庙还在吗？', old:'画中占着C位，殿宇宏敞', now:'彻底消失' },
+  { loc:'虎丘 · 云岩寺塔', q:'虎丘塔飞檐还在吗？', old:'画中飞檐翘角，塔铃叮当', now:'光溜溜的塔身' }
+];
+const compareGrid = document.getElementById('compareGrid');
+compareData.forEach((d) => {
+  const card = document.createElement('div');
+  card.className = 'compare-card';
+  card.innerHTML = `
+    <div class="compare-loc">${d.loc}</div>
+    <div class="compare-q">${d.q}</div>
+    <div class="compare-answers">
+      <div class="compare-answer old"><div class="a-label">乾隆年间</div><div class="a-text">${d.old}</div></div>
+      <div class="compare-answer now"><div class="a-label">今天</div><div class="a-text">${d.now}</div></div>
+    </div>
+    <div class="compare-hint">👆 点击揭晓"今天"的变化</div>`;
+  card.addEventListener('click', () => card.classList.toggle('revealed'));
+  compareGrid.appendChild(card);
+});
+
+// 四章数据 — 按区段组织
+const chapters = [
+  {
+    // 第一章 城外山水（3个区段，13点）
+    segments: [
+      { title:'木渎古镇', points:['山前村（灵岩山麓）','灵岩山','香溪、山塘街','木渎镇敌楼'] },
+      { title:'胥江运河', points:['胥江（木渎段）','胥江（横塘段）——含横塘、亭子桥（普福桥）','胥江（胥门段）'] },
+      { title:'石湖风光', points:['郭巷老街','石湖','行春桥、越城桥','石佛寺','天镜阁','上方山'] }
+    ]
+  },
+  {
+    // 第二章 直达姑苏（1个区段，8点）
+    segments: [
+      { title:'接官码头 · 直达姑苏', points:['狮子山','何山','大日晖桥','皇亭街','吴门桥、盘门、瑞光塔','葑门','胥门、胥门接官码头','万年桥'] }
+    ]
+  },
+  {
+    // 第三章 城内繁华（1个区段，16点）
+    segments: [
+      { title:'官署、街市、古迹', points:['府学文庙','织造府','江苏巡抚衙门','紫阳书院','道前街、苏州知府衙门','江苏按察使司','干江河、状元桥','吴县县学','学士街','江苏布政使司','怡老园','黄鹂坊（今景德路）','阊门大街（西中市）','专诸巷','北寺塔','齐门'] }
+    ]
+  },
+  {
+    // 第四章 七里山塘（1个区段，9点）
+    segments: [
+      { title:'阊门、山塘街、虎丘', points:['阊门','阊门吊桥','山塘桥','桐桥','半塘桥','普济桥','五人墓','斟酌桥','虎丘'] }
+    ]
+  }
+];
+
+// 渲染章节区段
+chapters.forEach((ch, ci) => {
+  const container = document.getElementById('segs-l' + (ci+1));
+  let globalIdx = 0;
+  // 计算全局起始编号
+  for (let i = 0; i < ci; i++) {
+    chapters[i].segments.forEach(s => globalIdx += s.points.length);
+  }
+  ch.segments.forEach((seg, si) => {
+    const block = document.createElement('div');
+    block.className = 'segment-block';
+    const title = document.createElement('div');
+    title.className = 'segment-title';
+    title.innerHTML = `${seg.title}<span class="seg-num">（${seg.points.length}点）</span>`;
+    block.appendChild(title);
+    const grid = document.createElement('div');
+    grid.className = 'lecture-points';
+    seg.points.forEach((p) => {
+      globalIdx++;
+      const chip = document.createElement('div');
+      chip.className = 'point-chip';
+      chip.innerHTML = `<span class="chip-num">${globalIdx}</span><span>${p}</span>`;
+      grid.appendChild(chip);
+    });
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+});
+
+// Tab 切换
+document.querySelectorAll('.lecture-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.lecture-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.lecture-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(target).classList.add('active');
+  });
+});
+
+// 46点位打卡墙
+const allPoints = [];
+chapters.forEach((ch, ci) => {
+  ch.segments.forEach(seg => {
+    seg.points.forEach(p => allPoints.push({ name:p, chapter:ci+1 }));
+  });
+});
+const cpGrid = document.getElementById('cpGrid');
+allPoints.forEach((p, i) => {
+  const cell = document.createElement('div');
+  cell.className = `cp-cell l${p.chapter}`;
+  cell.innerHTML = `${i+1}<div class="cp-tooltip">${p.name}（第${p.chapter}章）</div>`;
+  cpGrid.appendChild(cell);
+});
+
+// 进度条动画
+function animateProgress() {
+  const fill = document.getElementById('progressFill');
+  const text = document.getElementById('progressText');
+  let cur = 0; const target = 46;
+  const interval = setInterval(() => {
+    cur += 1;
+    if (cur >= target) { cur = target; clearInterval(interval); }
+    fill.style.width = (cur / target * 100) + '%';
+    text.textContent = cur + ' / ' + target;
+  }, 25);
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && entry.target.id === 'checkpoints') {
+      animateProgress();
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+observer.observe(document.getElementById('checkpoints'));
+
+// 卡片波纹
+document.querySelectorAll('.compare-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.cssText = `position:absolute;border-radius:50%;width:${size}px;height:${size}px;left:${e.clientX - rect.left - size/2}px;top:${e.clientY - rect.top - size/2}px;background:rgba(155,34,38,0.06);transform:scale(0);animation:ripple .5s ease-out;pointer-events:none;`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 500);
+  });
+});
+const style = document.createElement('style');
+style.textContent = `@keyframes ripple{to{transform:scale(2.5);opacity:0}}`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
