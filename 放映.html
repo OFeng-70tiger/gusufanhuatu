@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>姑苏繁华图 · 明信片放映</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#171310;overflow:hidden;user-select:none}
+#stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#card{position:relative;transition:transform .18s ease;transform-origin:center center;cursor:zoom-in}
+#card img{display:block;width:auto;height:92vh;max-width:96vw;border-radius:6px;box-shadow:0 0 60px rgba(0,0,0,.55)}
+#card.zoomed{cursor:zoom-out}
+#bar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 0 18px;background:linear-gradient(transparent,rgba(10,8,6,.82));opacity:.92}
+#no{color:#c8ab72;font:600 15px/1 Georgia,serif;letter-spacing:2px;min-width:64px;text-align:right}
+#title{color:#f5ecd7;font:15px/1 "Microsoft YaHei";letter-spacing:6px}
+#tip{color:#7a6a4e;font:12px/1 "Microsoft YaHei";letter-spacing:1px;position:fixed;top:12px;right:16px;opacity:.55}
+#hint{position:fixed;left:50%;top:44%;transform:translateX(-50%);color:#c8ab72;font:14px/1.8 "Microsoft YaHei";letter-spacing:2px;text-align:center;pointer-events:none;transition:opacity .5s}
+#btnGrid{position:fixed;left:14px;top:12px;z-index:30;background:rgba(24,19,14,.72);color:#c8ab72;
+  border:1px solid #8a6a30;border-radius:8px;padding:8px 18px;font:14px/1 "Microsoft YaHei";letter-spacing:4px;cursor:pointer}
+#btnGrid:hover{background:rgba(200,171,114,.25);color:#f5ecd7}
+.nav{position:fixed;top:50%;transform:translateY(-50%);z-index:15;background:rgba(24,19,14,.72);color:#c8ab72;
+  border:1px solid #8a6a30;border-radius:50%;width:64px;height:64px;font:28px/62px Georgia,serif;text-align:center;
+  cursor:pointer;transition:background .15s,color .15s;padding:0}
+.nav:hover{background:rgba(200,171,114,.25);color:#f5ecd7}
+#btnPrev{left:22px}#btnNext{right:22px}
+#grid{position:fixed;inset:0;z-index:20;background:#14110d;display:none;
+  overflow-y:auto;padding:56px 40px 40px}
+#grid.open{display:block}
+#grid h2{color:#c8ab72;font:14px/1 "Microsoft YaHei";letter-spacing:6px;text-align:center;margin-bottom:26px}
+.gw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;max-width:1200px;margin:0 auto}
+.gi{cursor:pointer;text-align:center}
+.gi img{width:100%;display:block;border-radius:4px;border:2px solid #3a2f1e;transition:border-color .15s}
+.gi:hover img{border-color:#c8ab72}
+.gi .gc{color:#9a8a68;font:12px/1 "Microsoft YaHei";letter-spacing:2px;margin-top:8px}
+.gi:hover .gc{color:#f5ecd7}
+.gi.cur img{border-color:#a04432}
+.gi.cur .gc{color:#e0a080}
+.fade{animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="card"><img id="img" alt=""></div></div>
+<button id="btnGrid">目 录</button>
+<button class="nav" id="btnPrev" title="上一张（←）">‹</button>
+<button class="nav" id="btnNext" title="下一张（→）">›</button>
+<div id="hint">方向键 ← → 翻页　·　滚轮 / 点击 放大细节　·　G 打开目录</div>
+<div id="tip">← → 翻页 · G 目录 · F 全屏</div>
+<div id="grid"><h2>明信片目录 · 点击跳转</h2><div class="gw" id="gwrap"></div></div>
+<div id="bar"><span id="no"></span><span id="title"></span></div>
+<script>
+var CARDS=[
+["明信片_01_山前村.png","山前村"],["明信片_02_灵岩山.png","灵岩山"],
+["明信片_03_木渎古镇.png","木渎古镇"],["明信片_04_木渎敌楼.png","木渎敌楼"],
+["明信片_05_胥江胥口.png","胥江·胥口"],["明信片_06_胥江横塘.png","胥江横塘"],
+["明信片_07_胥门河口.png","胥门河口"],["明信片_08_新郭老街.png","新郭老街"],
+["明信片_09_石湖.png","石湖"],["明信片_10_行春桥越城桥.png","行春桥·越城桥"],
+["明信片_11_石佛寺.png","石佛寺"],["明信片_12_天镜阁.png","天镜阁"],
+["明信片_13_上方山.png","上方山"],["明信片_14_狮子山.png","狮子山"],
+["明信片_15_何山.png","何山"],["明信片_16_泰让桥.png","泰让桥"],
+["明信片_17_皇亭街.png","皇亭街"],["明信片_18_盘门三景.png","盘门三景"],
+["明信片_19_葑门.png","葑门"],["明信片_20_胥门.png","胥门"],["明信片_21_万年桥.png","万年桥"],["明信片_34_阊门.png","阊门·西中市"],
+["明信片_40_七里山塘.png","七里山塘"],
+["明信片_46_虎丘塔.png","虎丘塔"]
+];
+var idx=0,zoom=1,px=0,py=0,hintTimer,gridOpen=false;
+var img=document.getElementById("img"),card=document.getElementById("card"),
+    no=document.getElementById("no"),title=document.getElementById("title"),
+    hint=document.getElementById("hint"),stage=document.getElementById("stage"),
+    grid=document.getElementById("grid"),gwrap=document.getElementById("gwrap");
+function apply(){
+  card.style.transform="translate("+px+"px,"+py+"px) scale("+zoom+")";
+  card.classList.toggle("zoomed",zoom>1.01);
+}
+function show(i){
+  idx=(i+CARDS.length)%CARDS.length;
+  zoom=1;px=0;py=0;apply();
+  img.classList.remove("fade");void img.offsetWidth;img.classList.add("fade");
+  img.src=CARDS[idx][0];
+  no.textContent=String(idx+1)+" / "+CARDS.length;
+  title.textContent=CARDS[idx][1];
+  var a=new Image();a.src=CARDS[(idx+1)%CARDS.length][0];
+  hint.style.opacity=0;clearTimeout(hintTimer);
+  markCur();
+}
+function step(dx){show(idx+dx);}
+function markCur(){
+  var items=gwrap.children;
+  for(var k=0;k<items.length;k++){items[k].classList.toggle("cur",k===idx);}
+}
+function openGrid(){gridOpen=true;grid.classList.add("open");markCur();
+  var cur=gwrap.children[idx];if(cur)cur.scrollIntoView({block:"center"});}
+function closeGrid(){gridOpen=false;grid.classList.remove("open");}
+function toggleGrid(){gridOpen?closeGrid():openGrid();}
+CARDS.forEach(function(c,i){
+  var d=document.createElement("div");d.className="gi";
+  var t=document.createElement("img");t.src="缩略图/"+c[0].replace(".png",".jpg");t.loading="lazy";
+  var n=document.createElement("div");n.className="gc";n.textContent=c[0].match(/_(\d+)_/)[1]+" "+c[1];
+  d.appendChild(t);d.appendChild(n);
+  d.addEventListener("click",function(){closeGrid();show(i);});
+  gwrap.appendChild(d);
+});
+document.getElementById("btnGrid").addEventListener("click",toggleGrid);
+document.getElementById("btnPrev").addEventListener("click",function(){step(-1);});
+document.getElementById("btnNext").addEventListener("click",function(){step(1);});
+document.addEventListener("keydown",function(e){
+  if(gridOpen){
+    if(e.key==="Escape"||e.key==="g"||e.key==="G"){closeGrid();}
+    else if(e.key==="ArrowRight"||e.key==="PageDown"){show(idx+1);}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"){show(idx-1);}
+    return;
+  }
+  if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){e.preventDefault();step(1);}
+  else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();step(-1);}
+  else if(e.key==="Home"){show(0);}
+  else if(e.key==="End"){show(CARDS.length-1);}
+  else if(e.key==="g"||e.key==="G"){openGrid();}
+  else if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+  else if(e.key==="Escape"&&zoom>1){zoom=1;px=0;py=0;apply();}
+});
+stage.addEventListener("click",function(e){
+  if(zoom>1.01){zoom=1;px=0;py=0;apply();}
+  else{var rect=img.getBoundingClientRect();var cx=(e.clientX-rect.left)/rect.width-0.5,cy=(e.clientY-rect.top)/rect.height-0.5;zoom=2.2;px=-cx*img.clientWidth*zoom*0.6;py=-cy*img.clientHeight*zoom*0.6;apply();}
+});
+stage.addEventListener("wheel",function(e){
+  e.preventDefault();
+  var f=e.deltaY<0?1.18:1/1.18,n=Math.min(6,Math.max(1,zoom*f));
+  var k=n/zoom;var r=stage.getBoundingClientRect();
+  var mx=e.clientX-r.x-window.innerWidth/2,my=e.clientY-r.y-window.innerHeight/2;
+  px=mx-(mx-px)*k;py=my-(my-py)*k;zoom=n;
+  if(zoom<=1.001){zoom=1;px=0;py=0;}
+  apply();
+},{passive:false});
+var drag=null;
+stage.addEventListener("mousedown",function(e){if(zoom>1.01){drag={x:e.clientX-px,y:e.clientY-py};e.preventDefault();}});
+window.addEventListener("mousemove",function(e){if(drag){px=e.clientX-drag.x;py=e.clientY-drag.y;apply();}});
+window.addEventListener("mouseup",function(){drag=null;});
+hintTimer=setTimeout(function(){hint.style.opacity=0;},6000);
+show(0,0);hint.style.opacity=1;
+if(location.hash==="#grid"){openGrid();}
+</script>
+</body>
+</html>
